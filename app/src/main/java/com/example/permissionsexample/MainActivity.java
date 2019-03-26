@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "Need permissions to access fine location", Toast.LENGTH_SHORT).show();
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 200);
         } else {
+            //This means user checked "do not ask again button".
             Toast.makeText(getApplicationContext(),"Perms forever denied",Toast.LENGTH_SHORT).show();
+            //Take user to app's settings page to manually grant permissions
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             Uri uri = Uri.fromParts("package", getApplication().getPackageName(), null);
